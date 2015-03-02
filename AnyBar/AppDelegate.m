@@ -25,7 +25,7 @@
     _statusItem.highlightMode = YES;
     
     NSString *portStr = [[[NSProcessInfo processInfo] environment] objectForKey:@"ANYBAR_PORT"];
-    if (portStr == nil) {
+    if (!portStr) {
         portStr = @"1738";
     }
     int port = [portStr intValue];
