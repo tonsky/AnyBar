@@ -4,6 +4,12 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 <img src="screenshot.png" />
 
+## Download
+
+Download version 0.1.0 [from releases](https://github.com/tonsky/AnyBar/releases/download/0.1.0/AnyBar.app.zip)
+
+## Usage
+
 AnyBar is controlled via UDP port. Send it a message and it will change a color:
 
 ```sh
