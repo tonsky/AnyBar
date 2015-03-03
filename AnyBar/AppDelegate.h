@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "GCDAsyncUdpSocket.h"
+#import "UdpServer.h"
+#import "ProcessEnvironment.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
-
+@interface AppDelegate : NSObject <NSApplicationDelegate, UdpServerDelegate>
 
 @end
-
