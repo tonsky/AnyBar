@@ -18,6 +18,8 @@
 		7648BAC11AA5A3C0003DA28F /* white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7648BAB61AA5A3C0003DA28F /* white@2x.png */; };
 		7648BAC21AA5A3C0003DA28F /* yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7648BAB71AA5A3C0003DA28F /* yellow@2x.png */; };
 		7648BAC31AA5A50B003DA28F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB32C41A8F9091002258B6 /* MainMenu.xib */; };
+		C01FC39C1AA63AF7007C0682 /* ProcessEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FC39B1AA63AF7007C0682 /* ProcessEnvironment.m */; };
+		C01FC39F1AA641A4007C0682 /* UdpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C01FC39E1AA641A4007C0682 /* UdpServer.m */; };
 		C5AB32BF1A8F9091002258B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB32BE1A8F9091002258B6 /* AppDelegate.m */; };
 		C5AB32C11A8F9091002258B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB32C01A8F9091002258B6 /* main.m */; };
 		C5AB32C31A8F9091002258B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5AB32C21A8F9091002258B6 /* Images.xcassets */; };
@@ -36,6 +38,10 @@
 		7648BAB41AA5A3C0003DA28F /* red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red@2x.png"; sourceTree = "<group>"; };
 		7648BAB61AA5A3C0003DA28F /* white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white@2x.png"; sourceTree = "<group>"; };
 		7648BAB71AA5A3C0003DA28F /* yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow@2x.png"; sourceTree = "<group>"; };
+		C01FC39A1AA63AF7007C0682 /* ProcessEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessEnvironment.h; sourceTree = "<group>"; };
+		C01FC39B1AA63AF7007C0682 /* ProcessEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessEnvironment.m; sourceTree = "<group>"; };
+		C01FC39D1AA641A4007C0682 /* UdpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdpServer.h; sourceTree = "<group>"; };
+		C01FC39E1AA641A4007C0682 /* UdpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdpServer.m; sourceTree = "<group>"; };
 		C511DFFB1AA4E9CF00DEE15F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C5AB32B81A8F9091002258B6 /* AnyBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AB32BC1A8F9091002258B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +110,10 @@
 				C5AB32E61A8F9B4E002258B6 /* GCDAsyncUdpSocket.m */,
 				C5AB32BD1A8F9091002258B6 /* AppDelegate.h */,
 				C5AB32BE1A8F9091002258B6 /* AppDelegate.m */,
+				C01FC39D1AA641A4007C0682 /* UdpServer.h */,
+				C01FC39E1AA641A4007C0682 /* UdpServer.m */,
+				C01FC39A1AA63AF7007C0682 /* ProcessEnvironment.h */,
+				C01FC39B1AA63AF7007C0682 /* ProcessEnvironment.m */,
 				C5AB32C21A8F9091002258B6 /* Images.xcassets */,
 				C5AB32C41A8F9091002258B6 /* MainMenu.xib */,
 				7648BAAC1AA5A3C0003DA28F /* Resources */,
@@ -200,6 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01FC39F1AA641A4007C0682 /* UdpServer.m in Sources */,
+				C01FC39C1AA63AF7007C0682 /* ProcessEnvironment.m in Sources */,
 				C5AB32E81A8F9B4E002258B6 /* GCDAsyncUdpSocket.m in Sources */,
 				C5AB32E71A8F9B4E002258B6 /* GCDAsyncSocket.m in Sources */,
 				C5AB32C11A8F9091002258B6 /* main.m in Sources */,
