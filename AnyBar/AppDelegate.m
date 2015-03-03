@@ -25,7 +25,7 @@
     _statusItem.highlightMode = YES;
     
     NSString *portStr = [[[NSProcessInfo processInfo] environment] objectForKey:@"ANYBAR_PORT"];
-    if (portStr == nil) {
+    if (!portStr) {
         portStr = @"1738";
     }
     int port = [portStr intValue];
@@ -37,7 +37,7 @@
     _statusItem.menu = menu;
     
     _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-    NSError *error = nil;
+    NSError *error = nil; //maybe we should check this error
     [_udpSocket bindToPort:port error:&error];
     [_udpSocket beginReceiving:&error];
 }
@@ -53,8 +53,25 @@ withFilterContext:(id)filterContext
     if ([msg isEqualToString:@"quit"]) {
         [[NSApplication sharedApplication] terminate:nil];
     } else {
-        NSString *file = [msg stringByAppendingString:@"@2x.png"];
-        self.statusItem.image = [NSImage imageNamed:file];
+        NSString *fileName = [msg stringByAppendingString:@"@2x"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *bundledFile = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:fileName, msg]
+                                                                ofType:@"png"];
+        
+        BOOL fileExistsInBundle = [fileManager fileExistsAtPath:bundledFile];
+        if (fileExistsInBundle) {
+            _statusItem.image = [[NSImage alloc] initWithContentsOfFile:bundledFile];
+        } else {
+            // let's lookup for the file in ~/.AnyBar
+            NSString *fallbackFile = [NSString stringWithFormat:@"%@/.AnyBar/%@.png", NSHomeDirectory(), fileName];
+            BOOL fallbackFileExists = [fileManager fileExistsAtPath:fallbackFile];
+            if (fallbackFileExists) {
+                _statusItem.image = [[NSImage alloc] initWithContentsOfFile:fallbackFile];
+            } else {
+                // Logging to Console.app
+                NSLog(@"No image for the command %@ found", msg);
+            }
+        }
     }
 }
 
