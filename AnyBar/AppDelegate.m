@@ -30,7 +30,9 @@ static const int UdpPortMax = 65535;
     NSImage *defaultImage = [NSImage imageNamed:DefaultImageName];
     NSImage *warnImage = [NSImage imageNamed:NSImageNameStatusUnavailable];
     int port = -1;
-
+    
+    defaultImage.Template = YES;
+    
     self.statusItem = [self initializeStatusBarItem];
     [self updateStatusImage: defaultImage];
 
