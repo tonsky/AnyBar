@@ -6,7 +6,7 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Download version 0.1.0 [from releases](https://github.com/tonsky/AnyBar/releases/download/0.1.0/AnyBar.app.zip)
+Download version 0.1.1 [from releases](https://github.com/tonsky/AnyBar/releases/download/0.1.1/AnyBar.app.zip)
 
 ## Usage
 
@@ -43,3 +43,10 @@ ANYBAR_PORT=1788 ./AnyBar.app/Contents/MacOS/AnyBar &
 ```
 
 (this way you can run multiple instances of AnyBar)
+
+## Changelog
+
+### 0.1.1
+
+- Support for Maverics (PR #2, thx [Oleg Kertanov](https://github.com/okertanov))
+- Support for custom images via ~/.AnyBar (PR #1, thx [Paul Boschmann](https://github.com/pboschmann))
