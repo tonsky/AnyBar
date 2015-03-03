@@ -6,7 +6,9 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Download version 0.1.1 [from releases](https://github.com/tonsky/AnyBar/releases/download/0.1.1/AnyBar.app.zip)
+Version 0.1.2:
+
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.2/AnyBar.app.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 ## Usage
 
@@ -27,8 +29,12 @@ Following “commands” change color:
 - red
 - white
 - yellow
+- question
+- exclamation
 
 And one special command forces AnyBar to quit: `quit`
+
+You can use your own images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, you can send `"square"` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
 
 Default port for AnyBar is 1738, you can change it by providing `ANYBAR_PORT` environment variable:
 
@@ -45,6 +51,10 @@ ANYBAR_PORT=1788 ./AnyBar.app/Contents/MacOS/AnyBar &
 (this way you can run multiple instances of AnyBar)
 
 ## Changelog
+
+### 0.1.2
+
+- Dark mode support. In dark mode AnyBar will first check for `<image>_alt@2x.png` or `<image>_alt.png` image first, then falls back to `<image>.png`
 
 ### 0.1.1
 

@@ -8,41 +8,31 @@
 
 #import "AppDelegate.h"
 
-static NSString* const AppConfigDirectoryName = @".AnyBar";
-static NSString* const PortEnvironmentName = @"ANYBAR_PORT";
-static NSString* const DefaultPort = @"1738";
-static NSString* const DefaultImageName = @"white@2x.png";
-static NSString* const AlternateImageName = @"alternate@2x.png";
-static const int UdpPortMin = 0;
-static const int UdpPortMax = 65535;
-
 @interface AppDelegate()
 
 @property (weak, nonatomic) IBOutlet NSWindow *window;
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
+@property (assign, nonatomic) BOOL dark;
+@property (strong, nonatomic) NSString *imageName;
 
 @end
 
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    NSImage *defaultImage = [NSImage imageNamed:DefaultImageName];
-    NSImage *warnImage = [NSImage imageNamed:NSImageNameStatusUnavailable];
     int port = -1;
-
+    _imageName = @"white";
     self.statusItem = [self initializeStatusBarItem];
-    [self updateStatusImage: defaultImage];
+    [self refreshDarkMode];
 
     @try {
         port = [self getUdpPort];
-
         _udpSocket = [self initializeUdpSocket: port];
     }
     @catch(NSException *ex) {
         NSLog(@"Error: %@: %@", ex.name, ex.reason);
-
-        [self updateStatusImage:warnImage];
+        _statusItem.image = [NSImage imageNamed:@"exclamation@2x.png"];
     }
     @finally {
         NSString *portTitle = [NSString stringWithFormat:@"UDP port: %@",
@@ -53,6 +43,13 @@ static const int UdpPortMax = 65535;
                                                            quitTitle: [NSValue valueWithPointer:@selector(terminate:)]
                                                            }];
     }
+    
+    NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
+    [center addObserver: self
+               selector: @selector(refreshDarkMode)
+                   name: @"AppleInterfaceThemeChangedNotification"
+                 object: nil];
+
 }
 
 -(void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -64,9 +61,9 @@ static const int UdpPortMax = 65535;
 }
 
 -(int) getUdpPort {
-    int port = [self readIntFromEnvironmentVariable:PortEnvironmentName usingDefault:DefaultPort];
+    int port = [self readIntFromEnvironmentVariable:@"ANYBAR_PORT" usingDefault:@"1738"];
 
-    if (port < UdpPortMin || port > UdpPortMax) {
+    if (port < 0 || port > 65535) {
         @throw([NSException exceptionWithName:@"Argument Exception"
                             reason:[NSString stringWithFormat:@"UDP Port range is invalid: %d", port]
                             userInfo:@{@"argument": [NSNumber numberWithInt:port]}]);
@@ -74,6 +71,15 @@ static const int UdpPortMax = 65535;
     }
 
     return port;
+}
+
+- (void)refreshDarkMode {
+    NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
+    if ([osxMode isEqualToString:@"Dark"])
+        self.dark = YES;
+    else
+        self.dark = NO;
+    [self setImage:_imageName];
 }
 
 -(GCDAsyncUdpSocket*)initializeUdpSocket:(int)port {
@@ -110,46 +116,62 @@ static const int UdpPortMax = 65535;
     [self processUdpSocketMsg:sock withData:data fromAddress:address];
 }
 
+-(NSImage*)tryImage:(NSString *)path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:path])
+        return [[NSImage alloc] initWithContentsOfFile:path];
+    else
+        return nil;
+}
+
+-(NSString*)bundledImagePath:(NSString *)name {
+    return [[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+}
+
+-(NSString*)homedirImagePath:(NSString *)name {
+    return [NSString stringWithFormat:@"%@/%@/%@.png", NSHomeDirectory(), @".AnyBar", name];
+}
+
+-(void)setImage:(NSString*) name {
+    
+    NSImage *image = nil;
+    if (_dark)
+        image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"_alt@2x"]]];
+    if (!image)
+        image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"@2x"]]];
+    if (_dark && !image)
+        image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"_alt"]]];
+    if (_dark && !image)
+        image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"_alt@2x"]]];
+    if (!image)
+        image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"@2x"]]];
+    if (!image)
+        image = [self tryImage:[self homedirImagePath:name]];
+    if (!image) {
+        if (_dark)
+            image = [self tryImage:[self bundledImagePath:@"question_alt@2x"]];
+        else
+            image = [self tryImage:[self bundledImagePath:@"question@2x"]];
+        NSLog(@"Cannot find image '%@'", name);
+    }
+
+    _statusItem.image = image;
+    _imageName = name;
+}
+
 -(void)processUdpSocketMsg:(GCDAsyncUdpSocket *)sock withData:(NSData *)data
     fromAddress:(NSData *)address {
     NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
-    if ([msg isEqualToString:@"quit"]) {
+    if ([msg isEqualToString:@"quit"])
         [[NSApplication sharedApplication] terminate:nil];
-    }
-    else {
-        NSImage *image = nil;
-        NSString *fileName = [msg stringByAppendingString:@"@2x"];
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *bundledFile = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:fileName, msg]
-                                                                ofType:@"png"];
-
-        BOOL fileExists = [fileManager fileExistsAtPath:bundledFile];
-        if (fileExists) {
-            image = [[NSImage alloc] initWithContentsOfFile:bundledFile];
-        }
-        else {
-            // Let's lookup for the file in ~/.AnyBar
-            NSString *fallbackFile = [NSString stringWithFormat:@"%@/%@/%@.png",
-                                      NSHomeDirectory(), AppConfigDirectoryName, fileName];
-            fileExists = [fileManager fileExistsAtPath:fallbackFile];
-            if (fileExists) {
-                image = [[NSImage alloc] initWithContentsOfFile:fallbackFile];
-            }
-        }
-
-        if (fileExists && image != nil) {
-            [self updateStatusImage: image];
-        }
-        else {
-            NSLog(@"No image for the command %@ found", msg);
-        }
-    }
+    else
+        [self setImage:msg];
 }
 
 -(NSStatusItem*) initializeStatusBarItem {
     NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    statusItem.alternateImage = [NSImage imageNamed:AlternateImageName];
+    statusItem.alternateImage = [NSImage imageNamed:@"black_alt@2x.png"];
     statusItem.highlightMode = YES;
     return statusItem;
 }
@@ -164,10 +186,6 @@ static const int UdpPortMax = 65535;
     }];
 
     return menu;
-}
-
--(void) updateStatusImage:(NSImage*) image {
-    _statusItem.image = image;
 }
 
 -(int) readIntFromEnvironmentVariable:(NSString*) envVariable usingDefault:(NSString*) defStr {
