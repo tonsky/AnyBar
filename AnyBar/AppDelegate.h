@@ -11,6 +11,12 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+//
+// OSA Scripting bridge
+// @see AnyBarApp.h
+//
+-(id) osaImageBridge;
+-(void) setOsaImageBridge:(id)imgName;
 
 @end
 

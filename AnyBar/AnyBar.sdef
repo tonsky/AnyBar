@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)" />
+
+    <suite name="AnyBar Suite" code="Anyb" description="Commands and classes for AnyBar OSA scripting.">
+        <class name="application" code="Capp" id="Cass" description="AnyBar application." inherits="application">
+            <cocoa class="NSApplication" />
+            <property name="image name" code="Imgn" type="text" access="rw" description="The image's name for the indication.">
+                <cocoa key="osaImage"/>
+            </property>
+        </class>
+    </suite>
+
+</dictionary>

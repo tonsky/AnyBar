@@ -43,13 +43,12 @@
                                                            quitTitle: [NSValue valueWithPointer:@selector(terminate:)]
                                                            }];
     }
-    
+
     NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
     [center addObserver: self
                selector: @selector(refreshDarkMode)
                    name: @"AppleInterfaceThemeChangedNotification"
                  object: nil];
-
 }
 
 -(void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -133,7 +132,7 @@
 }
 
 -(void)setImage:(NSString*) name {
-    
+
     NSImage *image = nil;
     if (_dark)
         image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"_alt@2x"]]];
@@ -211,6 +210,21 @@
     intVal = [number intValue];
 
     return intVal;
+}
+
+-(id) osaImageBridge {
+    NSLog(@"OSA Event: %@ - %@", NSStringFromSelector(_cmd), _imageName);
+
+    return _imageName;
+}
+
+
+-(void) setOsaImageBridge:(id)imgName {
+    NSLog(@"OSA Event: %@ - %@", NSStringFromSelector(_cmd), imgName);
+
+    _imageName = (NSString *)imgName;
+
+    [self setImage:_imageName];
 }
 
 @end
