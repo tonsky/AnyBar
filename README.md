@@ -40,19 +40,11 @@ You can use your own images if you put them under `~/.AnyBar`. E.g. if you have 
 
 ## Configuration
 
-Default port for AnyBar is 1738, you can change it by providing `ANYBAR_PORT` environment variable:
+Default port for AnyBar is 1738, you can change it by providing `ANYBAR_PORT` environment variable (note `open -n`):
 
 ```sh
-ANYBAR_PORT=1788 open ./AnyBar.app
+ANYBAR_PORT=1788 open -n ./AnyBar.app
 ```
-
-or
-
-```sh
-ANYBAR_PORT=1788 ./AnyBar.app/Contents/MacOS/AnyBar &
-```
-
-(this way you can run multiple instances of AnyBar)
 
 ## Changelog
 
