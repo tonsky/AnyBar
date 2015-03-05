@@ -4,10 +4,30 @@
     <xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)" />
 
     <suite name="AnyBar Suite" code="Anyb" description="Commands and classes for AnyBar OSA scripting.">
+        <!-- Suppress console warning for missing saveable file format type -->
+        <enumeration name="saveable file format" code="savf" hidden="yes">
+            <enumerator name="dummy" code="VTdm" description="A dummy file format." />
+        </enumeration>
+        
+        <!-- Root application -->
         <class name="application" code="Capp" id="Cass" description="AnyBar application." inherits="application">
             <cocoa class="NSApplication" />
+            <property name="app delegate" code="Adel" type="delegate" access="rw" description="An Application's delegate.">
+                <cocoa key="delegate"/>
+            </property>
             <property name="image name" code="Imgn" type="text" access="rw" description="The image's name for the indication.">
                 <cocoa key="osaImage"/>
+            </property>
+        </class>
+        
+        <!-- Application delegate -->
+        <class name="delegate" code="Dlgt" description="An Application's delegate.">
+            <cocoa class="AppDelegate"/>
+            <property name="dark mode" code="Dmod" description="Returns true if dark mode is set." type="boolean" access="r">
+                <cocoa key="dark"/>
+            </property>
+            <property name="udp port" code="Upor" description="Returns udp port number." type="integer" access="r">
+                <cocoa key="udpPort"/>
             </property>
         </class>
     </suite>

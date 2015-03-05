@@ -13,22 +13,23 @@
 @property (weak, nonatomic) IBOutlet NSWindow *window;
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
-@property (assign, nonatomic) BOOL dark;
 @property (strong, nonatomic) NSString *imageName;
+@property (assign, nonatomic) BOOL dark;
+@property (assign, nonatomic) int udpPort;
 
 @end
 
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    int port = -1;
+    _udpPort = -1;
     _imageName = @"white";
     self.statusItem = [self initializeStatusBarItem];
     [self refreshDarkMode];
 
     @try {
-        port = [self getUdpPort];
-        _udpSocket = [self initializeUdpSocket: port];
+        _udpPort = [self getUdpPort];
+        _udpSocket = [self initializeUdpSocket: _udpPort];
     }
     @catch(NSException *ex) {
         NSLog(@"Error: %@: %@", ex.name, ex.reason);
@@ -36,7 +37,7 @@
     }
     @finally {
         NSString *portTitle = [NSString stringWithFormat:@"UDP port: %@",
-                               port >= 0 ? [NSNumber numberWithInt:port] : @"unavailable"];
+                               _udpPort >= 0 ? [NSNumber numberWithInt:_udpPort] : @"unavailable"];
         NSString *quitTitle = @"Quit";
         _statusItem.menu = [self initializeStatusBarMenu:@{
                                                            portTitle: [NSValue valueWithPointer:nil],
