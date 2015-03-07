@@ -24,17 +24,17 @@ echo -n "black" | nc -4u -w0 localhost 1738
 
 Following “commands” change color:
 
-<img src="AnyBar/Resources/black@2x.png?raw=true" width=19 /> black  
-<img src="AnyBar/Resources/blue@2x.png?raw=true" width=19 /> blue  
-<img src="AnyBar/Resources/cyan@2x.png?raw=true" width=19 /> cyan  
-<img src="AnyBar/Resources/green@2x.png?raw=true" width=19 /> green  
-<img src="AnyBar/Resources/orange@2x.png?raw=true" width=19 /> orange  
-<img src="AnyBar/Resources/purple@2x.png?raw=true" width=19 /> purple  
-<img src="AnyBar/Resources/red@2x.png?raw=true" width=19 /> red  
-<img src="AnyBar/Resources/white@2x.png?raw=true" width=19 /> white  
-<img src="AnyBar/Resources/yellow@2x.png?raw=true" width=19 /> yellow  
-<img src="AnyBar/Resources/question@2x.png?raw=true" width=19 /> question  
-<img src="AnyBar/Resources/exclamation@2x.png?raw=true" width=19 /> exclamation  
+<img src="AnyBar/Resources/black@2x.png?raw=true" width=19 /> `black`  
+<img src="AnyBar/Resources/blue@2x.png?raw=true" width=19 /> `blue`  
+<img src="AnyBar/Resources/cyan@2x.png?raw=true" width=19 /> `cyan`  
+<img src="AnyBar/Resources/green@2x.png?raw=true" width=19 /> `green`  
+<img src="AnyBar/Resources/orange@2x.png?raw=true" width=19 /> `orange`  
+<img src="AnyBar/Resources/purple@2x.png?raw=true" width=19 /> `purple`  
+<img src="AnyBar/Resources/red@2x.png?raw=true" width=19 /> `red`  
+<img src="AnyBar/Resources/white@2x.png?raw=true" width=19 /> `white`  
+<img src="AnyBar/Resources/yellow@2x.png?raw=true" width=19 /> `yellow`  
+<img src="AnyBar/Resources/question@2x.png?raw=true" width=19 /> `question`  
+<img src="AnyBar/Resources/exclamation@2x.png?raw=true" width=19 /> `exclamation`  
 
 And one special command forces AnyBar to quit: `quit`
 
