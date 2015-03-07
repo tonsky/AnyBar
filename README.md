@@ -66,7 +66,7 @@ ANYBAR_PORT=1740 open -n ./AnyBar.app
 
 ## Custom images
 
-AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `"square"` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
+AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `square` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
 
 ## Changelog
 
