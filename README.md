@@ -10,9 +10,13 @@ Version 0.1.2:
 
 <a href="https://github.com/tonsky/AnyBar/releases/download/0.1.2/AnyBar.app.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
+Or using [Homebrew-cask](http://caskroom.io):
+
+    brew cask install anybar
+
 ## Usage
 
-AnyBar is controlled via UDP port. Send it a message and it will change a color:
+AnyBar is controlled via UDP port (1738 by default). Send it a message and it will change a color:
 
 ```sh
 echo -n "black" | nc -4u -w0 localhost 1738
@@ -20,31 +24,49 @@ echo -n "black" | nc -4u -w0 localhost 1738
 
 Following “commands” change color:
 
-- black
-- blue
-- cyan
-- green
-- orange
-- purple
-- red
-- white
-- yellow
-- question
-- exclamation
+<img src="AnyBar/Resources/black@2x.png?raw=true" width=19 /> black  
+<img src="AnyBar/Resources/blue@2x.png?raw=true" width=19 /> blue  
+<img src="AnyBar/Resources/cyan@2x.png?raw=true" width=19 /> cyan  
+<img src="AnyBar/Resources/green@2x.png?raw=true" width=19 /> green  
+<img src="AnyBar/Resources/orange@2x.png?raw=true" width=19 /> orange  
+<img src="AnyBar/Resources/purple@2x.png?raw=true" width=19 /> purple  
+<img src="AnyBar/Resources/red@2x.png?raw=true" width=19 /> red  
+<img src="AnyBar/Resources/white@2x.png?raw=true" width=19 /> white  
+<img src="AnyBar/Resources/yellow@2x.png?raw=true" width=19 /> yellow  
+<img src="AnyBar/Resources/question@2x.png?raw=true" width=19 /> question  
+<img src="AnyBar/Resources/exclamation@2x.png?raw=true" width=19 /> exclamation  
 
 And one special command forces AnyBar to quit: `quit`
 
-## Custom images
+## Alternative clients:
 
-You can use your own images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, you can send `"square"` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
+Go:
 
-## Configuration
+- [justincampbell/anybar](https://github.com/justincampbell/anybar)
+- [johntdyer/anybar-go](https://github.com/johntdyer/anybar-go)
 
-Default port for AnyBar is 1738, you can change it by providing `ANYBAR_PORT` environment variable (note `open -n`):
+Node:
+
+- [rumpl/nanybar](https://github.com/rumpl/nanybar)
+- [snippet by skibz](https://github.com/tonsky/AnyBar/issues/11)
+
+PHP:
+
+- [2bj/Phanybar](https://github.com/2bj/Phanybar)
+
+## Running multiple instances
+
+You can run several instances of AnyBar as long as they listen on different ports. Use `ANYBAR_PORT` environment variable to change port and `open -n` to run several instances:
 
 ```sh
-ANYBAR_PORT=1788 open -n ./AnyBar.app
+ANYBAR_PORT=1738 open -n ./AnyBar.app
+ANYBAR_PORT=1739 open -n ./AnyBar.app
+ANYBAR_PORT=1740 open -n ./AnyBar.app
 ```
+
+## Custom images
+
+AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `"square"` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
 
 ## Changelog
 
