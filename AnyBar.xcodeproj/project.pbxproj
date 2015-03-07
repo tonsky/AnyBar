@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7648BAC31AA5A50B003DA28F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB32C41A8F9091002258B6 /* MainMenu.xib */; };
+		C03A3D3E1AA78DAD0030B668 /* AnyBar.sdef in Resources */ = {isa = PBXBuildFile; fileRef = C03A3D3D1AA78DAD0030B668 /* AnyBar.sdef */; };
+		C03A3D431AA7A6540030B668 /* AnyBarApp.m in Sources */ = {isa = PBXBuildFile; fileRef = C03A3D421AA7A6540030B668 /* AnyBarApp.m */; };
 		C5AB32BF1A8F9091002258B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB32BE1A8F9091002258B6 /* AppDelegate.m */; };
 		C5AB32C11A8F9091002258B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB32C01A8F9091002258B6 /* main.m */; };
 		C5AB32C31A8F9091002258B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5AB32C21A8F9091002258B6 /* Images.xcassets */; };
@@ -30,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C03A3D3D1AA78DAD0030B668 /* AnyBar.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnyBar.sdef; sourceTree = "<group>"; };
+		C03A3D411AA7A6540030B668 /* AnyBarApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnyBarApp.h; sourceTree = "<group>"; };
+		C03A3D421AA7A6540030B668 /* AnyBarApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnyBarApp.m; sourceTree = "<group>"; };
 		C511DFFB1AA4E9CF00DEE15F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C5AB32B81A8F9091002258B6 /* AnyBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5AB32BC1A8F9091002258B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +121,8 @@
 				C5AB32E61A8F9B4E002258B6 /* GCDAsyncUdpSocket.m */,
 				C5AB32BD1A8F9091002258B6 /* AppDelegate.h */,
 				C5AB32BE1A8F9091002258B6 /* AppDelegate.m */,
+				C03A3D411AA7A6540030B668 /* AnyBarApp.h */,
+				C03A3D421AA7A6540030B668 /* AnyBarApp.m */,
 				C5AB32C21A8F9091002258B6 /* Images.xcassets */,
 				C5AB32C41A8F9091002258B6 /* MainMenu.xib */,
 				7648BAAC1AA5A3C0003DA28F /* Resources */,
@@ -127,6 +134,7 @@
 		C5AB32BB1A8F9091002258B6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C03A3D3D1AA78DAD0030B668 /* AnyBar.sdef */,
 				C5AB32BC1A8F9091002258B6 /* Info.plist */,
 				C5AB32C01A8F9091002258B6 /* main.m */,
 			);
@@ -205,6 +213,7 @@
 				C5E027201AA6435E0032F2E9 /* cyan@2x.png in Resources */,
 				C5E0271F1AA6435E0032F2E9 /* blue@2x.png in Resources */,
 				C5E027221AA6435E0032F2E9 /* orange@2x.png in Resources */,
+				C03A3D3E1AA78DAD0030B668 /* AnyBar.sdef in Resources */,
 				C5E0271D1AA6435E0032F2E9 /* black_alt@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03A3D431AA7A6540030B668 /* AnyBarApp.m in Sources */,
 				C5AB32E81A8F9B4E002258B6 /* GCDAsyncUdpSocket.m in Sources */,
 				C5AB32E71A8F9B4E002258B6 /* GCDAsyncSocket.m in Sources */,
 				C5AB32C11A8F9091002258B6 /* main.m in Sources */,

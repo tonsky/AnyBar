@@ -26,11 +26,15 @@
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>LSUIElement</key>
 	<true/>
+	<key>NSAppleScriptEnabled</key>
+	<string>YES</string>
+	<key>OSAScriptingDefinition</key>
+	<string>AnyBar</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2015 Nikita Prokopov. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<string>AnyBarApp</string>
 </dict>
 </plist>

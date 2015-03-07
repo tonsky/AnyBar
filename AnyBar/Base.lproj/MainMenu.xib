@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+        <customObject id="-2" userLabel="File's Owner" customClass="AnyBarApp">
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
             </connections>
