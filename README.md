@@ -22,7 +22,7 @@ AnyBar is controlled via UDP port (1738 by default). Send it a message and it wi
 echo -n "black" | nc -4u -w0 localhost 1738
 ```
 
-Following “commands” change color:
+Following commands change color:
 
 <img src="AnyBar/Resources/black@2x.png?raw=true" width=19 /> `black`  
 <img src="AnyBar/Resources/blue@2x.png?raw=true" width=19 /> `blue`  
@@ -38,7 +38,7 @@ Following “commands” change color:
 
 And one special command forces AnyBar to quit: `quit`
 
-## Alternative clients:
+## Alternative clients
 
 Go:
 
