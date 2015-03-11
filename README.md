@@ -6,9 +6,9 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Version 0.1.2:
+Version 0.1.3:
 
-<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.2/AnyBar.app.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.3/AnyBar.app.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 Or using [Homebrew-cask](http://caskroom.io):
 
@@ -41,6 +41,14 @@ And one special command forces AnyBar to quit: `quit`
 
 ## Alternative clients
 
+Bash alias:
+
+```sh
+function anybar {
+  if [ -z "$2" ]; then PORT=1738; else PORT=$2; fi
+  echo -n $1 | nc -4u -w0 localhost $PORT
+}```
+
 Go:
 
 - [justincampbell/anybar](https://github.com/justincampbell/anybar)
@@ -54,6 +62,15 @@ Node:
 PHP:
 
 - [2bj/Phanybar](https://github.com/2bj/Phanybar)
+
+AppleScript:
+
+```
+tell application "AnyBar" to set image name to "blue"
+
+tell application "AnyBar" to set current to get image name as Unicode text
+display notification current
+```
 
 ## Running multiple instances
 
@@ -70,6 +87,10 @@ ANYBAR_PORT=1740 open -n ./AnyBar.app
 AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `square` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
 
 ## Changelog
+
+### 0.1.3
+
+- AppleScript support (PR #8, thx [Oleg Kertanov](https://github.com/okertanov))
 
 ### 0.1.2
 
