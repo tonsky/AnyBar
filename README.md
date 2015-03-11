@@ -47,7 +47,8 @@ Bash alias:
 function anybar {
   if [ -z "$2" ]; then PORT=1738; else PORT=$2; fi
   echo -n $1 | nc -4u -w0 localhost $PORT
-}```
+}
+```
 
 Go:
 
