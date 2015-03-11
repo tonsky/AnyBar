@@ -8,7 +8,7 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 Version 0.1.3:
 
-<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.3/AnyBar.app.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.3/AnyBar-0.1.3.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 Or using [Homebrew-cask](http://caskroom.io):
 
