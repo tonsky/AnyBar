@@ -44,10 +44,10 @@ And one special command forces AnyBar to quit: `quit`
 Bash alias:
 
 ```sh
-function anybar {
-  if [ -z "$2" ]; then PORT=1738; else PORT=$2; fi
-  echo -n $1 | nc -4u -w0 localhost $PORT
-}
+$ function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738}; }
+
+$ anybar red
+$ anybar green 1739
 ```
 
 Go:
