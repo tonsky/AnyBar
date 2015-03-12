@@ -15,6 +15,9 @@
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
 @property (strong, nonatomic) NSString *imageName;
 @property (assign, nonatomic) BOOL dark;
+@property (assign, nonatomic) BOOL isBlinking;
+@property (assign, nonatomic) NSTimer* blinker;
+@property (assign, nonatomic) NSInteger currentState;
 @property (assign, nonatomic) int udpPort;
 
 @end
@@ -133,8 +136,8 @@
 }
 
 -(void)setImage:(NSString*) name {
-
     NSImage *image = nil;
+
     if (_dark)
         image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"_alt@2x"]]];
     if (!image)
@@ -156,7 +159,18 @@
     }
 
     _statusItem.image = image;
-    _imageName = name;
+}
+
+- (void)blinkIcon:(NSTimer*)timer
+{
+	//get the image for the current frame
+	if (_currentState==1) {
+		[self setImage:@"white"];
+		_currentState=0;
+	} else {
+		[self setImage:_imageName];
+		_currentState=1;
+	}
 }
 
 -(void)processUdpSocketMsg:(GCDAsyncUdpSocket *)sock withData:(NSData *)data
@@ -165,8 +179,22 @@
 
     if ([msg isEqualToString:@"quit"])
         [[NSApplication sharedApplication] terminate:nil];
-    else
-        [self setImage:msg];
+	if ([msg isEqualToString:@"blink"]){
+		if (!_isBlinking) {
+			_isBlinking=true;
+			_currentState = 0;
+			_blinker = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(blinkIcon:) userInfo:nil repeats:YES];
+		} else {
+			_isBlinking = false;
+			_currentState = 0;
+			[_blinker invalidate];
+			[self setImage:_imageName];
+		}
+	}
+	else {
+		_imageName = msg;
+		[self setImage:msg];
+	}
 }
 
 -(NSStatusItem*) initializeStatusBarItem {
