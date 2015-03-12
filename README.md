@@ -64,6 +64,10 @@ PHP:
 
 - [2bj/Phanybar](https://github.com/2bj/Phanybar)
 
+Java:
+
+- [cs475x/AnyBar4j](https://github.com/cs475x/AnyBar4j)
+
 AppleScript:
 
 ```
