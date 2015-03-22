@@ -68,6 +68,10 @@ Java:
 
 - [cs475x/AnyBar4j](https://github.com/cs475x/AnyBar4j)
 
+Ruby:
+
+- [davydovanton/AnyBar_rb](https://github.com/davydovanton/AnyBar_rb)
+
 AppleScript:
 
 ```
