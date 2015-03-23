@@ -81,6 +81,11 @@ tell application "AnyBar" to set current to get image name as Unicode text
 display notification current
 ```
 
+## Integrations
+
+- Webpack build status plugin [roman01la/anybar-webpack](https://github.com/roman01la/anybar-webpack)
+- boot-clj task [tonsky/boot-anybar](https://github.com/tonsky/boot-anybar)
+
 ## Running multiple instances
 
 You can run several instances of AnyBar as long as they listen on different ports. Use `ANYBAR_PORT` environment variable to change port and `open -n` to run several instances:
