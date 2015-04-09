@@ -81,6 +81,10 @@ tell application "AnyBar" to set current to get image name as Unicode text
 display notification current
 ```
 
+Python:
+
+- [philipbl/pyanybar](https://github.com/philipbl/pyAnyBar)
+
 ## Integrations
 
 - Webpack build status plugin [roman01la/anybar-webpack](https://github.com/roman01la/anybar-webpack)
