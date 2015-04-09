@@ -68,6 +68,10 @@ Java:
 
 - [cs475x/AnyBar4j](https://github.com/cs475x/AnyBar4j)
 
+Python:
+
+- [philipbl/pyanybar](https://github.com/philipbl/pyAnyBar)
+
 Ruby:
 
 - [davydovanton/AnyBar_rb](https://github.com/davydovanton/AnyBar_rb)
@@ -80,10 +84,6 @@ tell application "AnyBar" to set image name to "blue"
 tell application "AnyBar" to set current to get image name as Unicode text
 display notification current
 ```
-
-Python:
-
-- [philipbl/pyanybar](https://github.com/philipbl/pyAnyBar)
 
 ## Integrations
 
@@ -103,6 +103,10 @@ ANYBAR_PORT=1740 open -n ./AnyBar.app
 ## Custom images
 
 AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `square` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
+
+## Ports
+
+- Ubuntu Unity [limpbrains/somebar](https://github.com/limpbrains/somebar)
 
 ## Changelog
 
