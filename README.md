@@ -58,6 +58,7 @@ Go:
 Node:
 
 - [rumpl/nanybar](https://github.com/rumpl/nanybar)
+- [sindresorhus/anybar](https://github.com/sindresorhus/anybar)
 - [snippet by skibz](https://github.com/tonsky/AnyBar/issues/11)
 
 PHP:
