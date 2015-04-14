@@ -16,7 +16,13 @@ Or using [Homebrew-cask](http://caskroom.io):
 
 ## Usage
 
-AnyBar is controlled via UDP port (1738 by default). Send it a message and it will change a color:
+AnyBar is controlled via UDP port (1738 by default). Before commands can be sent, AnyBar.app must be launched:
+
+```sh
+open /Users/yourusername/Applications/AnyBar.app
+```
+
+Once launched, send it a message and it will change a color:
 
 ```sh
 echo -n "black" | nc -4u -w0 localhost 1738
