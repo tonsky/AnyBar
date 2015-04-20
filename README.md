@@ -56,6 +56,10 @@ $ anybar red
 $ anybar green 1739
 ```
 
+Bash alias with journaling:
+
+- [Andrew565/anybar-icon-journal](https://github.com/Andrew565/anybar-icon-journal)
+
 Go:
 
 - [justincampbell/anybar](https://github.com/justincampbell/anybar)
