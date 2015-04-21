@@ -96,6 +96,7 @@ display notification current
 
 - Webpack build status plugin [roman01la/anybar-webpack](https://github.com/roman01la/anybar-webpack)
 - boot-clj task [tonsky/boot-anybar](https://github.com/tonsky/boot-anybar)
+- Anybar-based CLI journal [Andrew565/anybar-icon-journal](https://github.com/Andrew565/anybar-icon-journal)
 
 ## Running multiple instances
 
