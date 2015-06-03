@@ -83,6 +83,10 @@ Ruby:
 
 - [davydovanton/AnyBar_rb](https://github.com/davydovanton/AnyBar_rb)
 
+Rust:
+
+- [urschrei/rust_anybar](https://github.com/urschrei/rust_anybar)
+
 AppleScript:
 
 ```
