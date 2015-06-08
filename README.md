@@ -87,6 +87,9 @@ Rust:
 
 - [urschrei/rust_anybar](https://github.com/urschrei/rust_anybar)
 
+Nim:
+- [rgv151/anybar.nim](https://github.com/rgv151/anybar.nim)
+
 AppleScript:
 
 ```
