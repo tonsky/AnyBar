@@ -90,6 +90,9 @@ Rust:
 Nim:
 - [rgv151/anybar.nim](https://github.com/rgv151/anybar.nim)
 
+Erlang:
+- [kureikain/ebar](https://github.com/kureikain/ebar)
+
 AppleScript:
 
 ```
