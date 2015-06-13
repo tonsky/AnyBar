@@ -102,6 +102,10 @@ tell application "AnyBar" to set current to get image name as Unicode text
 display notification current
 ```
 
+Alfred:
+
+- [https://github.com/raguay/MyAlfred](https://github.com/raguay/MyAlfred/blob/master/AnyBarWorkflow.alfredworkflow)
+
 ## Integrations
 
 - Webpack build status plugin [roman01la/anybar-webpack](https://github.com/roman01la/anybar-webpack)
