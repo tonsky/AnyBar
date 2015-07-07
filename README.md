@@ -129,6 +129,7 @@ AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you 
 ## Ports
 
 - Ubuntu Unity [limpbrains/somebar](https://github.com/limpbrains/somebar)
+- i3wm with i3pystatus [enkore/i3pystatus](https://github.com/enkore/i3pystatus)
 
 ## Changelog
 
