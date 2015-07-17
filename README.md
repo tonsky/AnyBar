@@ -93,6 +93,9 @@ Nim:
 Erlang:
 - [kureikain/ebar](https://github.com/kureikain/ebar)
 
+Crystal:
+- [davydovanton/AnyBar_cr](https://github.com/davydovanton/AnyBar_cr)
+
 AppleScript:
 
 ```
