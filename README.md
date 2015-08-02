@@ -122,6 +122,14 @@ ANYBAR_PORT=1739 open -n ./AnyBar.app
 ANYBAR_PORT=1740 open -n ./AnyBar.app
 ```
 
+You can set a title for each instance of AnyBar which will be shown after clicking on the menu bar icon.
+
+```sh
+ANYBAR_PORT=1738 ANYBAR_TITLE="This will be shown" open -n ./AnyBar.app
+ANYBAR_PORT=1739 ANYBAR_TITLE="Something else here" open -n ./AnyBar.app
+ANYBAR_PORT=1740 ANYBAR_TITLE="Yet another title" open -n ./AnyBar.app
+```
+
 ## Custom images
 
 AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `square` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
@@ -131,6 +139,10 @@ AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you 
 - Ubuntu Unity [limpbrains/somebar](https://github.com/limpbrains/somebar)
 
 ## Changelog
+
+### 0.1.4
+
+- Support for title in menu after clicking on menu bar icon
 
 ### 0.1.3
 
