@@ -16,12 +16,14 @@
 @property (strong, nonatomic) NSString *imageName;
 @property (assign, nonatomic) BOOL dark;
 @property (assign, nonatomic) int udpPort;
+@property (assign, nonatomic) NSString *flowTitle;
 
 @end
 
 @implementation AppDelegate
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    _flowTitle = [self readStringFromEnvironmentVariable:@"ANYBAR_TITLE" usingDefault:@"unavailable"];
     _udpPort = -1;
     _imageName = @"white";
     self.statusItem = [self initializeStatusBarItem];
@@ -36,10 +38,12 @@
         _statusItem.image = [NSImage imageNamed:@"exclamation@2x.png"];
     }
     @finally {
+        NSString *flowTitle = [NSString stringWithFormat:@"Title: %@", _flowTitle];
         NSString *portTitle = [NSString stringWithFormat:@"UDP port: %@",
                                _udpPort >= 0 ? [NSNumber numberWithInt:_udpPort] : @"unavailable"];
         NSString *quitTitle = @"Quit";
         _statusItem.menu = [self initializeStatusBarMenu:@{
+                                                           flowTitle: [NSValue valueWithPointer:nil],
                                                            portTitle: [NSValue valueWithPointer:nil],
                                                            quitTitle: [NSValue valueWithPointer:@selector(terminate:)]
                                                            }];
@@ -186,6 +190,14 @@
     }];
 
     return menu;
+}
+
+-(NSString*) readStringFromEnvironmentVariable:(NSString*)envVariable usingDefault:(NSString*)defStr {
+    NSString *envStr = [[[NSProcessInfo processInfo] environment] objectForKey:envVariable];
+    if (!envStr) {
+        envStr = defStr;
+    }
+    return envStr;
 }
 
 -(int) readIntFromEnvironmentVariable:(NSString*) envVariable usingDefault:(NSString*) defStr {
