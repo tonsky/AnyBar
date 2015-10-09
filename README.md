@@ -1,6 +1,6 @@
 # AnyBar: OS X menubar status indicator
 
-AnyBar is a small indicator for your menubar that does one simple thing: it displays color dot. What color means is up to you. When to change color is also up to you.
+AnyBar is a small indicator for your menubar that does one simple thing: it displays a colored dot. What the dot means and when to change it is up to you.
 
 <img src="AnyBar/Resources/screenshot.png?raw=true" />
 
@@ -16,20 +16,19 @@ Or using [Homebrew-cask](http://caskroom.io):
 
 ## Usage
 
-AnyBar is controlled via UDP port (1738 by default). Before commands can be sent, AnyBar.app must be launched:
+AnyBar is controlled via a UDP port (1738 by default). Before any commands can be sent, AnyBar.app must be launched:
 
 ```sh
 open /Users/yourusername/Applications/AnyBar.app
 ```
 
-Once launched, send it a message and it will change a color:
+Once launched, you may send it a message to change the style of the dot:
 
 ```sh
 echo -n "black" | nc -4u -w0 localhost 1738
 ```
 
-Following commands change color:
-
+The following default commands change the style of the dot:
 
 <img src="AnyBar/Resources/white@2x.png?raw=true" width=19 /> `white`  
 <img src="AnyBar/Resources/red@2x.png?raw=true" width=19 /> `red`  
@@ -88,9 +87,11 @@ Rust:
 - [urschrei/rust_anybar](https://github.com/urschrei/rust_anybar)
 
 Nim:
+
 - [rgv151/anybar.nim](https://github.com/rgv151/anybar.nim)
 
 Erlang:
+
 - [kureikain/ebar](https://github.com/kureikain/ebar)
 
 AppleScript:
@@ -114,7 +115,7 @@ Alfred:
 
 ## Running multiple instances
 
-You can run several instances of AnyBar as long as they listen on different ports. Use `ANYBAR_PORT` environment variable to change port and `open -n` to run several instances:
+You can run several instances of AnyBar as long as they listen on different ports. Use the `ANYBAR_PORT` environment variable to change the port and `open -n` to run several instances:
 
 ```sh
 ANYBAR_PORT=1738 open -n ./AnyBar.app
@@ -124,7 +125,7 @@ ANYBAR_PORT=1740 open -n ./AnyBar.app
 
 ## Custom images
 
-AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you have `~/.AnyBar/square@2x.png` present, send `square` to 1738 and it will be displayed. Images should be 19×19px (or twice that for retina).
+AnyBar can detect and use local custom images stored in the `~/.AnyBar` directory. For example, if you have a `~/.AnyBar/square@2x.png` image, send `square` to port 1738 and it will be displayed. Images should be 19×19 pixels for standard resolution, and 38x38 pixels for retina (@2x).
 
 ## Ports
 
@@ -151,4 +152,3 @@ AnyBar can use user-local images if you put them under `~/.AnyBar`. E.g. if you 
 Copyright © 2015 Nikita Prokopov
 
 Licensed under Eclipse Public License (see [LICENSE](LICENSE)).
-
