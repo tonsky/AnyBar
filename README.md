@@ -94,6 +94,10 @@ Erlang:
 
 - [kureikain/ebar](https://github.com/kureikain/ebar)
 
+Emacs: 
+
+- [rmuslimov/anybar.el](https://gist.github.com/rmuslimov/2d74cacd5e0ae827663e)
+
 AppleScript:
 
 ```
