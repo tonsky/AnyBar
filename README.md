@@ -94,6 +94,10 @@ Erlang:
 
 - [kureikain/ebar](https://github.com/kureikain/ebar)
 
+C++:
+
+- [enedil/anybar-cpp](https://github.com/enedil/anybar-cpp)
+
 Emacs: 
 
 - [rmuslimov/anybar.el](https://gist.github.com/rmuslimov/2d74cacd5e0ae827663e)
