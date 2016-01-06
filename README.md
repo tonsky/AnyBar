@@ -142,6 +142,7 @@ AnyBar can detect and use local custom images stored in the `~/.AnyBar` director
 ## Ports
 
 - Ubuntu Unity [limpbrains/somebar](https://github.com/limpbrains/somebar)
+- i3wm with i3pystatus [enkore/i3pystatus](https://github.com/enkore/i3pystatus)
 
 ## Changelog
 
