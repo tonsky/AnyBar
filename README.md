@@ -98,6 +98,9 @@ C++:
 
 - [enedil/anybar-cpp](https://github.com/enedil/anybar-cpp)
 
+Crystal:
+- [davydovanton/AnyBar_cr](https://github.com/davydovanton/AnyBar_cr)
+
 Emacs: 
 
 - [rmuslimov/anybar.el](https://gist.github.com/rmuslimov/2d74cacd5e0ae827663e)
