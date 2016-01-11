@@ -104,6 +104,7 @@ Crystal:
 Emacs: 
 
 - [rmuslimov/anybar.el](https://gist.github.com/rmuslimov/2d74cacd5e0ae827663e)
+- [tie-rack/anybar-el](https://github.com/tie-rack/anybar-el) (Also on [Melpa](http://melpa.org/#/anybar))
 
 AppleScript:
 
