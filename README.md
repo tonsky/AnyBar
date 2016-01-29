@@ -125,6 +125,7 @@ Alfred:
 - boot-clj task [tonsky/boot-anybar](https://github.com/tonsky/boot-anybar)
 - Anybar-based CLI journal [Andrew565/anybar-icon-journal](https://github.com/Andrew565/anybar-icon-journal)
 - Command monitoring [rvirani1/with_anybar](https://github.com/rvirani1/with_anybar)
+- Extension for ipython/jupyter/ipython notebook [ermakovpetr/ipython-anybar](https://github.com/ermakovpetr/ipython-anybar)
 
 ## Running multiple instances
 
