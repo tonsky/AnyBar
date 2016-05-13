@@ -132,9 +132,9 @@ Alfred:
 You can run several instances of AnyBar as long as they listen on different ports. Use the `ANYBAR_PORT` environment variable to change the port and `open -n` to run several instances:
 
 ```sh
-ANYBAR_PORT=1738 open -n ./AnyBar.app
-ANYBAR_PORT=1739 open -n ./AnyBar.app
-ANYBAR_PORT=1740 open -n ./AnyBar.app
+ANYBAR_PORT=1738 open -na AnyBar
+ANYBAR_PORT=1739 open -na AnyBar
+ANYBAR_PORT=1740 open -na AnyBar
 ```
 
 ## Custom images
