@@ -94,10 +94,6 @@ Erlang:
 
 - [kureikain/ebar](https://github.com/kureikain/ebar)
 
-C++:
-
-- [enedil/anybar-cpp](https://github.com/enedil/anybar-cpp)
-
 Crystal:
 - [davydovanton/AnyBar_cr](https://github.com/davydovanton/AnyBar_cr)
 
