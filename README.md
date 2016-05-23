@@ -94,6 +94,10 @@ Erlang:
 
 - [kureikain/ebar](https://github.com/kureikain/ebar)
 
+C:
+
+- [onderweg/anybar-cli](https://github.com/onderweg/anybar-cli)
+
 Crystal:
 - [davydovanton/AnyBar_cr](https://github.com/davydovanton/AnyBar_cr)
 
