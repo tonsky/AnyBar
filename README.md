@@ -85,6 +85,7 @@ Ruby:
 Rust:
 
 - [urschrei/rust_anybar](https://github.com/urschrei/rust_anybar)
+- [Feliix42/anybar-rs](https://github.com/Feliix42/anybar-rs)
 
 Nim:
 
