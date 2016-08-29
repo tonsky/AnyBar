@@ -156,6 +156,7 @@
     }
 
     _statusItem.image = image;
+    [_statusItem.image setTemplate:NO];
     _imageName = name;
 }
 
@@ -171,7 +172,7 @@
 
 -(NSStatusItem*) initializeStatusBarItem {
     NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    statusItem.alternateImage = [NSImage imageNamed:@"black_alt@2x.png"];
+    statusItem.alternateImage = [NSImage imageNamed:@"white_alt@2x.png"];
     statusItem.highlightMode = YES;
     return statusItem;
 }
