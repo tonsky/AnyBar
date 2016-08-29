@@ -6,9 +6,9 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Version 0.1.3:
+Version 0.1.4:
 
-<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.3/AnyBar-0.1.3.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.4/AnyBar-0.1.4.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 Or using [Homebrew-cask](http://caskroom.io):
 
@@ -149,6 +149,12 @@ AnyBar can detect and use local custom images stored in the `~/.AnyBar` director
 - i3wm with i3pystatus [enkore/i3pystatus](https://github.com/enkore/i3pystatus)
 
 ## Changelog
+
+### 0.1.4
+
+- Bigger dots
+- Render “black” on dark menubar as empty circle and “white” on dark as filled circle (#55)
+- Compiled for OS X 10.11
 
 ### 0.1.3
 
