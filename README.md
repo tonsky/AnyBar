@@ -131,7 +131,7 @@ Alfred:
 
 ## Running multiple instances
 
-You can run several instances of AnyBar as long as they listen on different ports. Use the `ANYBAR_PORT` environment variable to change the port and `open -n` to run several instances:
+You can run several instances of AnyBar as long as they listen on different ports. Use the `ANYBAR_PORT` environment variable to change the port and `open -na` to run several instances:
 
 ```sh
 ANYBAR_PORT=1738 open -na AnyBar
