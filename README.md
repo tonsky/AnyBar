@@ -19,7 +19,7 @@ Or using [Homebrew-cask](http://caskroom.io):
 AnyBar is controlled via a UDP port (1738 by default). Before any commands can be sent, AnyBar.app must be launched:
 
 ```sh
-open /Users/yourusername/Applications/AnyBar.app
+open -a AnyBar
 ```
 
 Once launched, you may send it a message to change the style of the dot:
