@@ -55,6 +55,10 @@ $ anybar red
 $ anybar green 1739
 ```
 
+Zsh with completion:
+
+- [wookayin/anybar-zsh](https://github.com/wookayin/anybar-zsh)
+
 Go:
 
 - [justincampbell/anybar](https://github.com/justincampbell/anybar)
