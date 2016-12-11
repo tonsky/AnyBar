@@ -103,6 +103,10 @@ C:
 
 - [onderweg/anybar-cli](https://github.com/onderweg/anybar-cli)
 
+C#:
+
+- [jenyayel/anybar-client](https://github.com/jenyayel/anybar-client)
+
 Crystal:
 - [davydovanton/AnyBar_cr](https://github.com/davydovanton/AnyBar_cr)
 
