@@ -14,6 +14,10 @@ Or using [Homebrew-cask](http://caskroom.io):
 
     brew cask install anybar
 
+## Support us
+
+<a href="https://patreon.com/tonsky" target="_blank"><img src="./anybar_patreon.png"></a>
+
 ## Usage
 
 AnyBar is controlled via a UDP port (1738 by default). Before any commands can be sent, AnyBar.app must be launched:
