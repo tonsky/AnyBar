@@ -139,6 +139,7 @@ Alfred:
 - Idea plugin [denofevil/AnyBarIdea](https://github.com/denofevil/AnyBarIdea)
 - Anybar-based CLI journal [Andrew565/anybar-icon-journal](https://github.com/Andrew565/anybar-icon-journal)
 - Command monitoring [rvirani1/with_anybar](https://github.com/rvirani1/with_anybar)
+- Monitor commands automatically, across several iterm tabs [stacycurl/anybar_bash](https://github.com/stacycurl/anybar-bash)
 - Extension for ipython/jupyter/ipython notebook [ermakovpetr/ipython-anybar](https://github.com/ermakovpetr/ipython-anybar)
 
 ## Running multiple instances
