@@ -63,6 +63,10 @@ Zsh with completion:
 
 - [wookayin/anybar-zsh](https://github.com/wookayin/anybar-zsh)
 
+Fish shell with completion:
+
+- [matchai/anybar-fish](https://github.com/matchai/anybar-fish)
+
 Go:
 
 - [justincampbell/anybar](https://github.com/justincampbell/anybar)
