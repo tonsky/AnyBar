@@ -10,7 +10,7 @@ Version 0.1.4:
 
 <a href="https://github.com/tonsky/AnyBar/releases/download/0.1.4/AnyBar-0.1.4.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
-Or using [Homebrew-cask](http://caskroom.io):
+Or using [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
 
     brew cask install anybar
 
