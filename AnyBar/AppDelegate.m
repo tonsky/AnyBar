@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSString *imageName;
 @property (assign, nonatomic) BOOL dark;
 @property (assign, nonatomic) int udpPort;
-@property (assign, nonatomic) NSString *appDesc;
+@property (assign, nonatomic) NSString *appTitle;
 
 @end
 
@@ -31,24 +31,23 @@
     @try {
         _udpPort = [self getUdpPort];
         _udpSocket = [self initializeUdpSocket: _udpPort];
-        _appDesc = [self getAppDesc];
-        _statusItem.toolTip = _appDesc;
+        _appTitle = [self readStringFromEnvironmentVariable:@"ANYBAR_TITLE" usingDefault:nil];
+        _statusItem.toolTip = _appTitle == nil ? [NSString stringWithFormat:@"AnyBar @ %d", _udpPort] : _appTitle;
     }
     @catch(NSException *ex) {
         NSLog(@"Error: %@: %@", ex.name, ex.reason);
         _statusItem.image = [NSImage imageNamed:@"exclamation@2x.png"];
     }
     @finally {
-        NSString *appTitle = _appDesc;
-        NSString *portTitle = [NSString stringWithFormat:@"UDP port: %@",
-                               _udpPort >= 0 ? [NSNumber numberWithInt:_udpPort] : @"unavailable"];
-        NSString *quitTitle = @"Quit";
+        NSString *portTitle = [NSString stringWithFormat:@"UDP port: %@", _udpPort >= 0 ? [NSNumber numberWithInt:_udpPort] : @"unavailable"];
+        NSMenu *menu = [[NSMenu alloc] init];
         
-        _statusItem.menu = [self initializeStatusBarMenu:@{
-                                                           portTitle: [NSValue valueWithPointer:nil],
-                                                           quitTitle: [NSValue valueWithPointer:@selector(terminate:)],
-                                                           appTitle: [NSValue valueWithPointer:nil]
-                                                           }];
+        if (_appTitle != nil)
+            [menu addItemWithTitle:_appTitle action:nil keyEquivalent:@""];
+        [menu addItemWithTitle:portTitle action:nil keyEquivalent:@""];
+        [menu addItemWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
+
+        _statusItem.menu = menu;
     }
 
     NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
@@ -77,10 +76,6 @@
     }
 
     return port;
-}
-
--(NSString*) getAppDesc {
-    return [self readStringFromEnvironmentVariable:@"ANYBAR_DESC" usingDefault:@"AnyBar"];
 }
 
 - (void)refreshDarkMode {
@@ -185,18 +180,6 @@
     statusItem.alternateImage = [NSImage imageNamed:@"white_alt@2x.png"];
     statusItem.highlightMode = YES;
     return statusItem;
-}
-
--(NSMenu*) initializeStatusBarMenu:(NSDictionary*)menuDictionary {
-    NSMenu *menu = [[NSMenu alloc] init];
-
-    [menuDictionary enumerateKeysAndObjectsUsingBlock:^(NSString* key, NSValue* val, BOOL *stop) {
-        SEL action = nil;
-        [val getValue:&action];
-        [menu addItemWithTitle:key action:action keyEquivalent:@""];
-    }];
-
-    return menu;
 }
 
 -(int) readIntFromEnvironmentVariable:(NSString*) envVariable usingDefault:(NSString*) defStr {

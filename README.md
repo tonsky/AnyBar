@@ -6,9 +6,9 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Version 0.1.4:
+Version 0.2.0:
 
-<a href="https://github.com/tonsky/AnyBar/releases/download/0.1.4/AnyBar-0.1.4.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.2.0/AnyBar-0.2.0.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 Or using [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
 
@@ -156,6 +156,14 @@ ANYBAR_PORT=1739 open -na AnyBar
 ANYBAR_PORT=1740 open -na AnyBar
 ```
 
+You can specify title to distinguish dots in the menubar:
+
+```sh
+ANYBAR_PORT=1738 ANYBAR_TITLE=First  open -na AnyBar
+ANYBAR_PORT=1739 ANYBAR_TITLE=Second open -na AnyBar
+ANYBAR_PORT=1740 ANYBAR_TITLE=Third  open -na AnyBar
+```
+
 ## Custom images
 
 AnyBar can detect and use local custom images stored in the `~/.AnyBar` directory. For example, if you have a `~/.AnyBar/square@2x.png` image, send `square` to port 1738 and it will be displayed. Images should be 19×19 pixels for standard resolution, and 38x38 pixels for retina (@2x).
@@ -166,28 +174,6 @@ AnyBar can detect and use local custom images stored in the `~/.AnyBar` director
 - i3wm with i3pystatus [enkore/i3pystatus](https://github.com/enkore/i3pystatus)
 - Windows 10 [PavelStefanov/NoteBar](https://github.com/PavelStefanov/NoteBar)
 - Emacs [plexus/.../emybar.el](https://github.com/plexus/plexmacs/blob/master/emybar/emybar.el)
-
-## Changelog
-
-### 0.1.4
-
-- Bigger dots
-- Render “black” on dark menubar as empty circle and “white” on dark as filled circle (#55)
-- Compiled for OS X 10.11
-
-### 0.1.3
-
-- AppleScript support (PR #8, thx [Oleg Kertanov](https://github.com/okertanov))
-
-### 0.1.2
-
-- Dark mode support. In dark mode AnyBar will first check for `<image>_alt@2x.png` or `<image>_alt.png` image first, then falls back to `<image>.png`
-- Support for Mavericks actually works
-
-### 0.1.1
-
-- Support for Mavericks (PR #2, thx [Oleg Kertanov](https://github.com/okertanov))
-- Support for custom images via ~/.AnyBar (PR #1, thx [Paul Boschmann](https://github.com/pboschmann))
 
 ## License
 
