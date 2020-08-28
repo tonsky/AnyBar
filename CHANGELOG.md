@@ -1,3 +1,7 @@
+### 0.2.1 / Aug 28, 2020
+
+- Correct version metadata
+
 ### 0.2.0 / Aug 26, 2020
 
 - Specify app tooltip via `ANYBAR_TITLE` #59 #64 thx @mynameismiek @andrewsjg

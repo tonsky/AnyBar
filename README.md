@@ -6,9 +6,9 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Version 0.2.0:
+Version 0.2.1:
 
-<a href="https://github.com/tonsky/AnyBar/releases/download/0.2.0/AnyBar-0.2.0.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.2.1/AnyBar-0.2.1.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 Or using [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
 

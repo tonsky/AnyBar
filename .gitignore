@@ -1,4 +1,3 @@
-xcuserdata
-*.xcuserdata
+xcuserdata/
 build
 *.zip
