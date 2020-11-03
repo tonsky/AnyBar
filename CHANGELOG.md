@@ -1,3 +1,7 @@
+### 0.2.2 / Nov 3, 2020
+
+- Specify starting color via `ANYBAR_INIT` #80 #81 thx @Gira-X
+
 ### 0.2.1 / Aug 28, 2020
 
 - Correct version metadata
