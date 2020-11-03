@@ -24,7 +24,7 @@
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _udpPort = -1;
-    _imageName = @"white";
+    _imageName = [self readStringFromEnvironmentVariable:@"ANYBAR_INIT" usingDefault:@"white"];
     self.statusItem = [self initializeStatusBarItem];
     [self refreshDarkMode];
 

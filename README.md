@@ -156,12 +156,20 @@ ANYBAR_PORT=1739 open -na AnyBar
 ANYBAR_PORT=1740 open -na AnyBar
 ```
 
-You can specify title to distinguish dots in the menubar:
+## Environment variables to specify a title and the initial color of the dot
+
+A title can be set to distinguish dots in the menubar:
 
 ```sh
 ANYBAR_PORT=1738 ANYBAR_TITLE=First  open -na AnyBar
 ANYBAR_PORT=1739 ANYBAR_TITLE=Second open -na AnyBar
 ANYBAR_PORT=1740 ANYBAR_TITLE=Third  open -na AnyBar
+```
+
+And the initial color of the dot can also be set:
+
+```sh
+ANYBAR_INIT=blue open -na AnyBar
 ```
 
 ## Custom images
