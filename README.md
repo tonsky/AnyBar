@@ -12,7 +12,7 @@ Version 0.2.2:
 
 Or using [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
 
-    brew cask install anybar
+    brew install --cask anybar
 
 ## Support us
 
