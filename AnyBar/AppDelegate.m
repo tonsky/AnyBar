@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NSStatusItem *statusItem;
 @property (strong, nonatomic) GCDAsyncUdpSocket *udpSocket;
 @property (strong, nonatomic) NSString *imageName;
-@property (assign, nonatomic) BOOL dark;
 @property (assign, nonatomic) int udpPort;
 @property (assign, nonatomic) NSString *appTitle;
 
@@ -24,9 +23,9 @@
 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _udpPort = -1;
-    _imageName = [self readStringFromEnvironmentVariable:@"ANYBAR_INIT" usingDefault:@"white"];
+    _imageName = [self readStringFromEnvironmentVariable:@"ANYBAR_INIT" usingDefault:@"hollow"];
     self.statusItem = [self initializeStatusBarItem];
-    [self refreshDarkMode];
+    [self setImage:_imageName];
 
     @try {
         _udpPort = [self getUdpPort];
@@ -37,6 +36,7 @@
     @catch(NSException *ex) {
         NSLog(@"Error: %@: %@", ex.name, ex.reason);
         _statusItem.image = [NSImage imageNamed:@"exclamation@2x.png"];
+        [_statusItem.image setTemplate:NO];
     }
     @finally {
         NSString *portTitle = [NSString stringWithFormat:@"UDP port: %@", _udpPort >= 0 ? [NSNumber numberWithInt:_udpPort] : @"unavailable"];
@@ -49,12 +49,6 @@
 
         _statusItem.menu = menu;
     }
-
-    NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
-    [center addObserver: self
-               selector: @selector(refreshDarkMode)
-                   name: @"AppleInterfaceThemeChangedNotification"
-                 object: nil];
 }
 
 -(void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -76,15 +70,6 @@
     }
 
     return port;
-}
-
-- (void)refreshDarkMode {
-    NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
-    if ([osxMode isEqualToString:@"Dark"])
-        self.dark = YES;
-    else
-        self.dark = NO;
-    [self setImage:_imageName];
 }
 
 -(GCDAsyncUdpSocket*)initializeUdpSocket:(int)port {
@@ -138,31 +123,27 @@
 }
 
 -(void)setImage:(NSString*) name {
-
     NSImage *image = nil;
-    if (_dark)
-        image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"_alt@2x"]]];
-    if (!image)
-        image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"@2x"]]];
-    if (_dark && !image)
-        image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"_alt"]]];
-    if (_dark && !image)
-        image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"_alt@2x"]]];
-    if (!image)
-        image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"@2x"]]];
+    image = [self tryImage:[self homedirImagePath:[name stringByAppendingString:@"@2x"]]];
     if (!image)
         image = [self tryImage:[self homedirImagePath:name]];
+    if (!image)
+        image = [self tryImage:[self bundledImagePath:[name stringByAppendingString:@"@2x"]]];
+    if (!image)
+        image = [self tryImage:[self bundledImagePath:name]];
     if (!image) {
-        if (_dark)
-            image = [self tryImage:[self bundledImagePath:@"question_alt@2x"]];
-        else
-            image = [self tryImage:[self bundledImagePath:@"question@2x"]];
         NSLog(@"Cannot find image '%@'", name);
+        image = [self tryImage:[self bundledImagePath:@"question@2x"]];
+        _statusItem.image = image;
+        [_statusItem.image setTemplate:NO];
+    } else {
+        _statusItem.image = image;
+        if ([name isEqualToString:@"filled"] || [name isEqualToString:@"hollow"])
+            [_statusItem.image setTemplate:YES];
+        else
+            [_statusItem.image setTemplate:NO];
+        _imageName = name;
     }
-
-    _statusItem.image = image;
-    [_statusItem.image setTemplate:NO];
-    _imageName = name;
 }
 
 -(void)processUdpSocketMsg:(GCDAsyncUdpSocket *)sock withData:(NSData *)data
@@ -177,7 +158,7 @@
 
 -(NSStatusItem*) initializeStatusBarItem {
     NSStatusItem *statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    statusItem.alternateImage = [NSImage imageNamed:@"white_alt@2x.png"];
+//    statusItem.image = [NSImage imageNamed:@"white@2x.png"];
     statusItem.highlightMode = YES;
     return statusItem;
 }

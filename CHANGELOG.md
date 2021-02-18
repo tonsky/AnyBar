@@ -1,3 +1,7 @@
+### 0.2.3 / Feb 18, 2021
+
+- Added `filled` and `hollow`, removed alternative versions of `black` and `white` #84
+
 ### 0.2.2 / Nov 3, 2020
 
 - Specify starting color via `ANYBAR_INIT` #80 #81 thx @Gira-X

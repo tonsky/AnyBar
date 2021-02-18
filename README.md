@@ -6,9 +6,9 @@ AnyBar is a small indicator for your menubar that does one simple thing: it disp
 
 ## Download
 
-Version 0.2.2:
+Version 0.2.3:
 
-<a href="https://github.com/tonsky/AnyBar/releases/download/0.2.2/AnyBar-0.2.2.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
+<a href="https://github.com/tonsky/AnyBar/releases/download/0.2.3/AnyBar-0.2.3.zip"><img src="AnyBar/Images.xcassets/AppIcon.appiconset/icon_128x128@2x.png?raw=true" style="width: 128px;" width=128/></a>
 
 Or using [Homebrew Cask](https://github.com/Homebrew/homebrew-cask):
 
@@ -34,19 +34,25 @@ echo -n "black" | nc -4u -w0 localhost 1738
 
 The following default commands change the style of the dot:
 
-<img src="AnyBar/Resources/white@2x.png?raw=true" width=19 /> `white`  
-<img src="AnyBar/Resources/red@2x.png?raw=true" width=19 /> `red`  
-<img src="AnyBar/Resources/orange@2x.png?raw=true" width=19 /> `orange`  
-<img src="AnyBar/Resources/yellow@2x.png?raw=true" width=19 /> `yellow`  
-<img src="AnyBar/Resources/green@2x.png?raw=true" width=19 /> `green`  
-<img src="AnyBar/Resources/cyan@2x.png?raw=true" width=19 /> `cyan`  
-<img src="AnyBar/Resources/blue@2x.png?raw=true" width=19 /> `blue`  
-<img src="AnyBar/Resources/purple@2x.png?raw=true" width=19 /> `purple`  
-<img src="AnyBar/Resources/black@2x.png?raw=true" width=19 /> `black`  
-<img src="AnyBar/Resources/question@2x.png?raw=true" width=19 /> `question`  
-<img src="AnyBar/Resources/exclamation@2x.png?raw=true" width=19 /> `exclamation`  
+| Command       | Preview                                                             |
+|---------------|---------------------------------------------------------------------|
+| `white`       | <img src="AnyBar/Resources/white@2x.png?raw=true" width=15 />       |
+| `red`         | <img src="AnyBar/Resources/red@2x.png?raw=true" width=15 />         |
+| `orange`      | <img src="AnyBar/Resources/orange@2x.png?raw=true" width=15 />      |
+| `yellow`      | <img src="AnyBar/Resources/yellow@2x.png?raw=true" width=15 />      |
+| `green`       | <img src="AnyBar/Resources/green@2x.png?raw=true" width=15 />       |
+| `cyan`        | <img src="AnyBar/Resources/cyan@2x.png?raw=true" width=15 />        |
+| `blue`        | <img src="AnyBar/Resources/blue@2x.png?raw=true" width=15 />        |
+| `purple`      | <img src="AnyBar/Resources/purple@2x.png?raw=true" width=15 />      |
+| `black`       | <img src="AnyBar/Resources/black@2x.png?raw=true" width=15 />       |
+| `question`    | <img src="AnyBar/Resources/question@2x.png?raw=true" width=15 />    |
+| `exclamation` | <img src="AnyBar/Resources/exclamation@2x.png?raw=true" width=15 /> |
+| `filled`      | <img src="AnyBar/Resources/filled@2x.png?raw=true" width=15 />      |
+| `hollow`      | <img src="AnyBar/Resources/hollow@2x.png?raw=true" width=15 />      |
 
-And one special command forces AnyBar to quit: `quit`
+`black` and `white` always has black or white fill. On Big Sur, where text color of menubar might change depending on the wallpaper, you might want to use `filled` and `hollow` instead. They are inverted when menubar changes its appearance.
+
+To quit, send `quit`.
 
 ## Alternative clients
 
