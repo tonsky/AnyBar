@@ -140,7 +140,7 @@ display notification current
 
 Alfred:
 
-- [https://github.com/raguay/MyAlfred](https://github.com/raguay/MyAlfred/blob/master/AnyBarWorkflow.alfredworkflow)
+- [https://github.com/raguay/MyAlfred](https://github.com/raguay/MyAlfred/blob/master/Alfred%204/AnyBar%20Workflow.alfredworkflow)
 
 ## Integrations
 
