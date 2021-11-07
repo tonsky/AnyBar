@@ -84,6 +84,10 @@ Node:
 - [sindresorhus/anybar](https://github.com/sindresorhus/anybar)
 - [snippet by skibz](https://github.com/tonsky/AnyBar/issues/11)
 
+Deno:
+
+- [pumpncode/anybar](https://github.com/pumpncode/anybar)
+
 PHP:
 
 - [2bj/Phanybar](https://github.com/2bj/Phanybar)
