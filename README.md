@@ -32,6 +32,12 @@ Once launched, you may send it a message to change the style of the dot:
 echo -n "black" | nc -4u -w0 localhost 1738
 ```
 
+If you use bash, you might prefer this instead:
+
+```
+bash -c 'echo -n "black" > /dev/udp/localhost/1738'
+```
+
 The following default commands change the style of the dot:
 
 | Command       | Preview                                                             |
@@ -63,6 +69,12 @@ $ function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738}; }
 
 $ anybar red
 $ anybar green 1739
+```
+
+Or with /dev/udp:
+
+```sh
+function anybar { echo -n $1 > /dev/udp/localhost/${2:-1738}; }
 ```
 
 Zsh with completion:
