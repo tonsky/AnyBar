@@ -34,7 +34,7 @@ echo -n "black" | nc -4u -w0 localhost 1738
 
 If you use bash, you might prefer this instead:
 
-```
+```sh
 bash -c 'echo -n "black" > /dev/udp/localhost/1738'
 ```
 
@@ -147,7 +147,7 @@ Emacs:
 
 AppleScript:
 
-```
+```applescript
 tell application "AnyBar" to set image name to "blue"
 
 tell application "AnyBar" to set current to get image name as Unicode text
